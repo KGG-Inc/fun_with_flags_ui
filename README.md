@@ -1,6 +1,7 @@
 # FunWithFlags.UI
 
 [![Mix Tests](https://github.com/tompave/fun_with_flags_ui/workflows/Mix%20Tests/badge.svg)](https://github.com/tompave/fun_with_flags_ui/actions?query=branch%3Amaster)
+[![Code Quality](https://github.com/tompave/fun_with_flags_ui/actions/workflows/quality.yml/badge.svg?branch=master)](https://github.com/tompave/fun_with_flags_ui/actions/workflows/quality.yml?query=branch%3Amaster)  
 [![Hex.pm](https://img.shields.io/hexpm/v/fun_with_flags_ui.svg)](https://hex.pm/packages/fun_with_flags_ui)
 
 A Web dashboard for the [FunWithFlags](https://github.com/tompave/fun_with_flags) Elixir package.
@@ -50,7 +51,7 @@ Note: If your plug router uses `Plug.CSRFProtection`, `FunWithFlags.UI.Router` s
 
 ### Standalone
 
-Again, because it's just a plug, it can be run standalone in [different](https://hexdocs.pm/plug/readme.html#supervised-handlers) [ways](https://hexdocs.pm/plug/Plug.Adapters.Cowboy.html#http/3).
+Again, because it's just a plug, it can be run [standalone](https://hexdocs.pm/plug/readme.html#supervised-handlers).
 
 If you clone the repository, the library comes with two convenience functions to accomplish this:
 
@@ -119,6 +120,6 @@ It requires [`fun_with_flags`](https://hex.pm/packages/fun_with_flags), see its 
 
 ```elixir
 def deps do
-  [{:fun_with_flags_ui, "~> 0.7.2"}]
+  [{:fun_with_flags_ui, "~> 0.8"}]
 end
 ```

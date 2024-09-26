@@ -1,14 +1,14 @@
 defmodule FunWithFlagsUi.Mixfile do
   use Mix.Project
 
-  @version "0.7.2"
+  @version "1.0.0"
 
   def project do
     [
       app: :fun_with_flags_ui,
       source_url: "https://github.com/tompave/fun_with_flags_ui",
       version: @version,
-      elixir: "~> 1.8",
+      elixir: "~> 1.15",
       elixirc_paths: elixirc_paths(Mix.env),
       build_embedded: Mix.env == :prod,
       start_permanent: Mix.env == :prod,
@@ -19,7 +19,7 @@ defmodule FunWithFlagsUi.Mixfile do
     ]
   end
 
-  
+
   # The most common use case for this library is to embed it in
   # a host web application and serve it from a sub path: it should
   # just be plug'ed into a Phoenix or Plug router.
@@ -41,12 +41,13 @@ defmodule FunWithFlagsUi.Mixfile do
 
   defp deps do
     [
-      {:plug, "~> 1.4"},
-      {:plug_cowboy, ">= 1.0.0", optional: true},
-      {:cowboy, ">= 1.0.0", optional: true},
-      {:fun_with_flags, "~> 1.1"},
-      {:redix, ">= 0.8.2", only: [:dev, :test]},
+      {:plug, "~> 1.12"},
+      {:plug_cowboy, ">= 2.0.0", optional: true},
+      {:cowboy, ">= 2.0.0", optional: true},
+      {:fun_with_flags, "~> 1.12"},
+      {:redix, "~> 1.0", only: [:dev, :test]},
       {:ex_doc, ">= 0.0.0", only: :dev},
+      {:credo, "~> 1.7", only: :dev, runtime: false},
     ]
   end
 

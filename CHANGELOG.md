@@ -1,10 +1,32 @@
 # Changelog
 
-## v0.8.0 (unreleased)
+## v1.1.0 (unreleased)
 
-* Add support for Elixir 1.11. Drop support for Elixir 1.6 and 1.7. Elixir >= 1.8 is now required. Dropping support for older versions of Elixir simply means that this package is no longer tested with them in CI, and that compatibility issues are not considered bugs.
-* Drop support for Erlang/OTP 20, and Erlang/OTP >= 21 is now required. An older Erlang/OTP might still work with older versions of Elixir, but Elixir 1.10 requires Erlang/OTP >= 21. Dropping support for older versions of Erlang/OTP simply means that this package is not tested with them in CI, and that compatibility issues are not considered bugs.
+* Add support for Elixir 1.16 and 1.17. Drop support for Elixir 1.13 and 1.14. Elixir >= 1.15 is now required. Dropping support for older versions of Elixir simply means that this package is no longer tested with them in CI, and that compatibility issues are not considered bugs.
+* Require `fun_with_flags ~> 1.12`. This is not strictly required because `v1.11` will also work, but it makes it easier to ensure that both libraries are compatible with the latest Elixir and OTP.
+
+## v1.0.0
+
+No changes, but this package has been stable for so long that it's time to graduate to `v1`. It's possible to just upgrade from `v0.x` to `v1.0` without issues. This also makes it easier to keep the versions of this UI package and of the `fun_with_flags` package in lockstep, when `v2` is released.
+
+## v0.9.0
+
+* Add support for Elixir 1.14 and 1.15. Drop support for Elixir 1.11 and 1.12. Elixir >= 1.13 is now required. Dropping support for older versions of Elixir simply means that this package is no longer tested with them in CI, and that compatibility issues are not considered bugs.
+* Drop support for Erlang/OTP 22 and 23, and Erlang/OTP >= 24 is now required. Dropping support for older versions of Erlang/OTP simply means that this package is not tested with them in CI, and that compatibility issues are not considered bugs.
+* Addressed Plug an Logger deprecation warnings. Thank you [Ch4s3](https://github.com/Ch4s3) ([pull/27](https://github.com/tompave/fun_with_flags_ui/pull/27)) and [ryvasquez](https://github.com/ryvasquez) ([pull/31](https://github.com/tompave/fun_with_flags_ui/pull/31)) for bringing it up and addressing them.
+* Addressed XSS vulnerability. (Thanks [ryanwinchester](https://github.com/ryanwinchester), [pull/29](https://github.com/tompave/fun_with_flags_ui/pull/29), plus [pull/34](https://github.com/tompave/fun_with_flags_ui/pull/34))
+
+## v0.8.1
+
+* Always URI-escape flag names before rendering them in web pages. ([pull/24](https://github.com/tompave/fun_with_flags_ui/pull/24)) This fixes a XSS vulnerability on the 404 page. Thank you [voltone](https://github.com/voltone) for reporting the issue privately and for discussing possible fixes, and [mmrupp](https://github.com/mmrupp) from [Cure53](https://cure53.de/) for discovering the issue.
+
+## v0.8.0
+
+* Add support for Elixir 1.11, 1.12, and 1.13. Drop support for Elixir 1.6, 1.7, 1.8, 1.9 and 1.10. Elixir >= 1.11 is now required. Dropping support for older versions of Elixir simply means that this package is no longer tested with them in CI, and that compatibility issues are not considered bugs.
+* Drop support for Erlang/OTP 20 and 21, and Erlang/OTP >= 22 is now required. Dropping support for older versions of Erlang/OTP simply means that this package is not tested with them in CI, and that compatibility issues are not considered bugs.
 * In the Flag index page, for each flag, always display the gates in a consistent order. Previously the order depended on how the data was returned by the persistent datastore. (Thanks [LostKobrakai](https://github.com/LostKobrakai), [pull/16](https://github.com/tompave/fun_with_flags_ui/pull/16))
+* Require more recent versions of runtime dependencies.
+* Local dev: added `credo` to CI setup.
 
 ## v0.7.2
 

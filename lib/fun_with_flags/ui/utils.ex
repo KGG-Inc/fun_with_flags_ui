@@ -74,12 +74,7 @@ defmodule FunWithFlags.UI.Utils do
 
   def get_flag(name) do
     if safe_flag_exists?(name) do
-      case FunWithFlags.SimpleStore.lookup(String.to_existing_atom(name)) do
-        {:ok, _flag} = result ->
-          result
-        {:error, _reason} = error ->
-          error
-      end
+      FunWithFlags.SimpleStore.lookup(String.to_existing_atom(name)) # {:ok, flag}, or raise
     else
       {:error, "not found"}
     end
@@ -177,18 +172,17 @@ defmodule FunWithFlags.UI.Utils do
 
 
   def parse_and_validate_float(string) do
-    cond do
-      blank?(string) ->
-        {:fail, "can't be blank"}
-      true ->
-        case Float.parse(string) do
-          {float, _} when float > 0 and float < 1 ->
-            {:ok, float}
-          {_float, _} ->
-            {:fail, "is outside the '0.0 < x < 1.0' range"}
-          :error ->
-            {:fail, "is not a valid decimal number"}
-        end
+    if blank?(string) do
+      {:fail, "can't be blank"}
+    else
+      case Float.parse(string) do
+        {float, _} when float > 0 and float < 1 ->
+          {:ok, float}
+        {_float, _} ->
+          {:fail, "is outside the '0.0 < x < 1.0' range"}
+        :error ->
+          {:fail, "is not a valid decimal number"}
+      end
     end
   end
 

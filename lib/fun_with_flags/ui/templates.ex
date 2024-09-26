@@ -2,8 +2,9 @@ defmodule FunWithFlags.UI.Templates do
   @moduledoc false
 
   require EEx
-  alias FunWithFlags.UI.Utils
   alias FunWithFlags.Flag
+  alias FunWithFlags.UI.Utils
+  import FunWithFlags.UI.HTMLEscape, only: [html_escape: 1]
 
   @templates [
     _head: "_head",
@@ -73,5 +74,12 @@ defmodule FunWithFlags.UI.Templates do
 
   def path(conn, path) do
     Path.join(conn.assigns[:namespace], path)
+  end
+
+
+  def url_safe(val) do
+    val
+    |> to_string()
+    |> URI.encode()
   end
 end
